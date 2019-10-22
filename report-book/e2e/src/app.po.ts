@@ -9,3 +9,6 @@ export class AppPage {
     return element(by.css('ion-title')).getText();
   }
 }
+
+
+//pusu test
