@@ -39,6 +39,11 @@ export class TutorialPage implements OnInit, OnDestroy {
         this.menu.enable(false);
     }
 
+    date(ev: any) {
+        console.log(ev);
+    }
+
+
     ngOnDestroy(): void {
         this.menu.enable(true);
     }
