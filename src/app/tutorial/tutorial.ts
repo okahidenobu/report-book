@@ -1,8 +1,9 @@
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
-import {MyProfile,FathersProfile,MothersProfile} from '../interfaces/my-profile';
+import {MyProfile, FathersProfile, MothersProfile} from '../interfaces/my-profile';
 
 import {MenuController, IonSlides} from '@ionic/angular';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
     selector: 'page-tutorial',
@@ -10,27 +11,62 @@ import {MenuController, IonSlides} from '@ionic/angular';
     styleUrls: ['./tutorial.scss'],
 })
 
-
 export class TutorialPage implements OnInit, OnDestroy {
     showSkip = true;
+    myProfile: MyProfile;
+    fathersProfile: FathersProfile;
+    mothersProfile: MothersProfile;
 
-    @ViewChild('slides', {static: true}) slides: IonSlides;
+    builder = new FormBuilder();
+    myProfileForm: FormGroup;
+    fathersProfileForm: FormGroup;
+    mothersProfileForm: FormGroup;
+
+    requireError = 'にゅうりょくしてね';
+    mailError = 'メールアドレスがまちがってるよ';
+
+    @ViewChild('slides', {static: false}) slides: IonSlides;
 
     constructor(
         public menu: MenuController,
-        public router: Router,
-    ) {
-    }
+        public router: Router) {
 
-    startApp() {
-        this.router
-            .navigateByUrl('/home')
-            .then(() => localStorage.setItem('did_tutorial', 'did'));
+        this.myProfileForm = this.builder.group({
+            nickname: this.builder.control('', Validators.required),
+            birth: this.builder.control('', Validators.required),
+            gender: this.builder.control('', Validators.required),
+            area: this.builder.control('', Validators.required),
+        });
+
+        this.fathersProfileForm = this.builder.group({
+            nickname: this.builder.control('', Validators.required),
+            birth: this.builder.control('', Validators.required),
+            mail: this.builder.control('', [Validators.required, Validators.email]),
+        });
+
+        this.mothersProfileForm = this.builder.group({
+            nickname: this.builder.control('', Validators.required),
+            birth: this.builder.control('', Validators.required),
+            mail: this.builder.control('', [Validators.required, Validators.email]),
+        });
     }
 
     onSlideChangeStart(event) {
-        event.target.isEnd().then(isEnd => {
-            this.showSkip = !isEnd;
+        this.slides.getActiveIndex().then((index) => {
+            this.slides.slideTo(index);
+        });
+    }
+
+
+    back() {
+        this.slides.getActiveIndex().then((index) => {
+            this.slides.slideTo(index - 1);
+        });
+    }
+
+    next() {
+        this.slides.getActiveIndex().then((index) => {
+            this.slides.slideTo(index + 1);
         });
     }
 
@@ -42,50 +78,40 @@ export class TutorialPage implements OnInit, OnDestroy {
         this.menu.enable(false);
     }
 
-    date(ev: any) {
-        console.log(ev);
+    myProfileSubmit() {
+        this.myProfile = {
+            nickname: this.myProfileForm.controls.nickname.value,
+            birth: this.myProfileForm.controls.birth.value,
+            gender: this.myProfileForm.controls.gender.value,
+            area: this.myProfileForm.controls.area.value,
+        };
+        localStorage.setItem('my_profile', JSON.stringify(this.myProfile));
     }
 
+    fatherProfileSubmit() {
+        this.fathersProfile = {
+            nickname: this.fathersProfileForm.controls.nickname.value,
+            birth: this.fathersProfileForm.controls.birth.value,
+            email_address: this.fathersProfileForm.controls.mail.value,
+        };
+        localStorage.setItem('father_profile', JSON.stringify(this.fathersProfile));
+
+        // TODO 次のスライドにうつる処理
+    }
+
+    motherProfileSubmit() {
+        this.mothersProfile = {
+            nickname: this.mothersProfileForm.controls.nickname.value,
+            birth: this.mothersProfileForm.controls.birth.value,
+            email_address: this.mothersProfileForm.controls.mail.value,
+        };
+        localStorage.setItem('mother_profile', JSON.stringify(this.mothersProfile));
+
+        // ホームに遷移
+        this.router.navigateByUrl('/home').then(() => localStorage.setItem('did_tutorial', 'did'));
+    }
 
     ngOnDestroy(): void {
         this.menu.enable(true);
     }
-}
-
-
-export class Tab1Page implements OnInit{
-
-    myProfile: MyProfile;
-    FathersProfile:FathersProfile;
-    MothersProfile:MothersProfile;
-
-    constructor() {}
-
-
-    testClick(){
-        console.log('click')
-    }
-
-    ngOnInit(){
-        // データを取得
-        this.myProfile.nickname = 'me';
-        this.myProfile.birth = 'mybirthdate';
-        this.myProfile.gender = 'boy';
-        this.myProfile.area = 'fukuoka';
-
-        this.FathersProfile.nickname = 'myfather';
-        this.FathersProfile.birth = 'fatersbirthdate';
-        this.FathersProfile.emailAdress = 'father@family.com';
-
-        this.MothersProfile.nickname = 'myfather';
-        this.MothersProfile.birth = 'mothersbirthdate';
-        this.MothersProfile.emailAdress = 'mother@family.com';
-
-
-        //localstrgaeに保存
-        localStorage.setItem('my_profile', JSON.stringify('my_profile'));
-        localStorage.setItem('MyFathersProfile', JSON.stringify('MyFathersProfile'));
-        localStorage.setItem('MyMothersProfile', JSON.stringify('MyMothersProfile'));
-    }
-
 }
