@@ -86,6 +86,7 @@ export class TutorialPage implements OnInit, OnDestroy {
             area: this.myProfileForm.controls.area.value,
         };
         localStorage.setItem('my_profile', JSON.stringify(this.myProfile));
+        this.next();
     }
 
     fatherProfileSubmit() {
@@ -96,7 +97,7 @@ export class TutorialPage implements OnInit, OnDestroy {
         };
         localStorage.setItem('father_profile', JSON.stringify(this.fathersProfile));
 
-        // TODO 次のスライドにうつる処理
+        this.next();
     }
 
     motherProfileSubmit() {

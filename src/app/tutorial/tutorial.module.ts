@@ -4,13 +4,15 @@ import { IonicModule } from '@ionic/angular';
 
 import { TutorialPage } from './tutorial';
 import { TutorialPageRoutingModule } from './tutorial-routing.module';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    IonicModule,
-    TutorialPageRoutingModule
-  ],
+    imports: [
+        CommonModule,
+        IonicModule,
+        TutorialPageRoutingModule,
+        ReactiveFormsModule
+    ],
   declarations: [TutorialPage],
   entryComponents: [TutorialPage],
 })

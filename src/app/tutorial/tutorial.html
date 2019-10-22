@@ -20,57 +20,76 @@
                 </div>
             </ion-slide>
             <ion-slide>
-                <div class="card fit">
-                    <p class="m-0">とうろく</p>
-                    <h1 class="font-bold">じぶん</h1>
-                    <p class="m-0">ニックネーム</p>
-                    <ion-input clearInput value=""></ion-input>
-                    <p class="m-0">せいねんがっぴ</p>
-                    <ion-input clearInput value=""></ion-input>
-                    <p class="m-0">せいべつ</p>
-                    <ion-input clearInput value=""></ion-input>
-                    <p class="m-0">とどうふけん</p>
-                    <ion-input clearInput value=""></ion-input>
-                </div>
-                <ion-button class="test-button" color="primary" shape="round" expand="full">
-                    つぎへ
-                </ion-button>
+                <form [formGroup]="myProfileForm" novalidate>
+                    <div class="card fit">
+                        <p class="m-0">とうろく</p>
+                        <h1 class="font-bold">じぶん</h1>
+                        <p class="m-0">ニックネーム</p>
+                        <ion-input clearInput
+                                   [formControl]="myProfileForm.controls.nickname"></ion-input>
+                        <p class="m-0">せいねんがっぴ</p>
+                        <ion-input clearInput
+                                   [formControl]="myProfileForm.controls.birth"></ion-input>
+                        <p class="m-0">せいべつ</p>
+                        <ion-input clearInput
+                                   [formControl]="myProfileForm.controls.gender"></ion-input>
+                        <p class="m-0">とどうふけん</p>
+                        <ion-input clearInput
+                                   [formControl]="myProfileForm.controls.area"></ion-input>
+                    </div>
+                    <ion-button class="test-button" color="primary" shape="round" expand="full"
+                                (click)="myProfileSubmit()">
+                        つぎへ
+                    </ion-button>
+                </form>
             </ion-slide>
             <ion-slide>
-                <div class="card fit">
-                    <p class="m-0">とうろく</p>
-                    <h1 class="font-bold">おとうさん</h1>
-                    <p class="m-0">ニックネーム</p>
-                    <ion-input clearInput value=""></ion-input>
-                    <p class="m-0">せいねんがっぴ</p>
-                    <ion-input clearInput value=""></ion-input>
-                    <p class="m-0">メールアドレス</p>
-                    <ion-input clearInput value=""></ion-input>
-                </div>
-                <ion-button class="test-button" color="medium" shape="round" expand="full">
-                    もどる
-                </ion-button>
-                <ion-button class="test-button" color="primary" shape="round" expand="full">
-                    つぎへ
-                </ion-button>
+                <form [formGroup]="fathersProfileForm" novalidate>
+                    <div class="card fit">
+                        <p class="m-0">とうろく</p>
+                        <h1 class="font-bold">おとうさん</h1>
+                        <p class="m-0">ニックネーム</p>
+                        <ion-input clearInput
+                                   [formControl]="fathersProfileForm.controls.nickname"></ion-input>
+                        <p class="m-0">せいねんがっぴ</p>
+                        <ion-input clearInput
+                                   [formControl]="fathersProfileForm.controls.birth"></ion-input>
+                        <p class="m-0">メールアドレス</p>
+                        <ion-input clearInput
+                                   [formControl]="fathersProfileForm.controls.mail"></ion-input>
+                    </div>
+                    <ion-button class="test-button" color="medium" shape="round" expand="full" (click)="back()">
+                        もどる
+                    </ion-button>
+                    <ion-button class="test-button" color="primary" shape="round" expand="full"
+                                (click)="fatherProfileSubmit()">
+                        つぎへ
+                    </ion-button>
+                </form>
             </ion-slide>
             <ion-slide>
-                <div class="card fit">
-                    <p class="m-0">とうろく</p>
-                    <h1 class="font-bold">おかあさん</h1>
-                    <p class="m-0">ニックネーム</p>
-                    <ion-input clearInput value=""></ion-input>
-                    <p class="m-0">せいねんがっぴ</p>
-                    <ion-input clearInput value=""></ion-input>
-                    <p class="m-0">メールアドレス</p>
-                    <ion-input clearInput value=""></ion-input>
-                </div>
-                <ion-button class="test-button" color="medium" shape="round" expand="full">
-                    もどる
-                </ion-button>
-                <ion-button class="test-button" color="primary" shape="round" expand="full">
-                    さっそくはじめる！
-                </ion-button>
+                <form [formGroup]="mothersProfileForm" novalidate>
+                    <div class="card fit">
+                        <p class="m-0">とうろく</p>
+                        <h1 class="font-bold">おかあさん</h1>
+                        <p class="m-0">ニックネーム</p>
+                        <ion-input clearInput
+                                   [formControl]="mothersProfileForm.controls.nickname"></ion-input>
+                        <p class="m-0">せいねんがっぴ</p>
+                        <ion-input clearInput
+                                   [formControl]="mothersProfileForm.controls.birth"></ion-input>
+                        <p class="m-0">メールアドレス</p>
+                        <ion-input clearInput
+                                   [formControl]="mothersProfileForm.controls.mail"></ion-input>
+                        <ion-button class="test-button" color="medium" shape="round" expand="full" (click)="back()">
+                            もどる
+                        </ion-button>
+                        <ion-button class="test-button" color="primary" shape="round" expand="full"
+                                    (click)="motherProfileSubmit()">
+                            さっそくはじめる！
+                        </ion-button>
+                    </div>
+                </form>
             </ion-slide>
         </ion-slides>
     </div>
