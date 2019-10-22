@@ -1,0 +1,24 @@
+.evaluation {
+  background-color: var(--ion-color-secondary);
+  height: 100vh;
+  position: relative;
+
+  .card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .Q {
+      span {
+        &:nth-child(1) {
+          font-size: 2rem;
+        }
+
+        &:nth-child(2) {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+}
