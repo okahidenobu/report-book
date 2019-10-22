@@ -3,46 +3,6 @@
 
 /** Ionic CSS Variables **/
 :root {
-  /** 使用するカラー **/
-  /** primary **/
-  --ion-color-primary: #FFB640;
-  --ion-color-primary-rgb: 255, 182, 64;
-  --ion-color-primary-contrast: #000000;
-  --ion-color-primary-contrast-rgb: 0, 0, 0;
-  --ion-color-primary-shade: #e0a038;
-  --ion-color-primary-tint: #ffbd53;
-
-  /** dark **/
-  --ion-color-dark: #363636;
-  --ion-color-dark-rgb: 54, 54, 54;
-  --ion-color-dark-contrast: #ffffff;
-  --ion-color-dark-contrast-rgb: 255, 255, 255;
-  --ion-color-dark-shade: #303030;
-  --ion-color-dark-tint: #4a4a4a;
-
-  /** secondary **/
-  --ion-color-secondary: #42574A;
-  --ion-color-secondary-rgb: 66, 87, 74;
-  --ion-color-secondary-contrast: #ffffff;
-  --ion-color-secondary-contrast-rgb: 255, 255, 255;
-  --ion-color-secondary-shade: #3a4d41;
-  --ion-color-secondary-tint: #55685c;
-
-  /** medium **/
-  --ion-color-medium: #D6D6D6;
-  --ion-color-medium-rgb: 214, 214, 214;
-  --ion-color-medium-contrast: #000000;
-  --ion-color-medium-contrast-rgb: 0, 0, 0;
-  --ion-color-medium-shade: #bcbcbc;
-  --ion-color-medium-tint: #dadada;
-
-  /** tertiary **/
-  --ion-color-tertiary: #EDFBFF;
-  --ion-color-tertiary-rgb: 237, 251, 255;
-  --ion-color-tertiary-contrast: #000000;
-  --ion-color-tertiary-contrast-rgb: 0, 0, 0;
-  --ion-color-tertiary-shade: #d1dde0;
-  --ion-color-tertiary-tint: #effbff;
 
   .report-book {
     background-image: url("../assets/bg_hobby.jpg");
@@ -90,7 +50,6 @@
   }
 
   ion-button {
-    --color: #ffffff
   }
 
   .fs12 {
@@ -108,6 +67,51 @@
   .m-0 {
     margin: 0;
   }
+
+  .mb-3 {
+    margin-bottom: 3rem;
+  }
+
+  /** 使用するカラー **/
+  /** primary **/
+  --ion-color-primary: #FFB640;
+  --ion-color-primary-rgb: 255, 182, 64;
+  --ion-color-primary-contrast: #000000;
+  --ion-color-primary-contrast-rgb: 0, 0, 0;
+  --ion-color-primary-shade: #e0a038;
+  --ion-color-primary-tint: #ffbd53;
+
+  /** dark **/
+  --ion-color-dark: #363636;
+  --ion-color-dark-rgb: 54, 54, 54;
+  --ion-color-dark-contrast: #ffffff;
+  --ion-color-dark-contrast-rgb: 255, 255, 255;
+  --ion-color-dark-shade: #303030;
+  --ion-color-dark-tint: #4a4a4a;
+
+  /** secondary **/
+  --ion-color-secondary: #42574A;
+  --ion-color-secondary-rgb: 66, 87, 74;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #3a4d41;
+  --ion-color-secondary-tint: #55685c;
+
+  /** medium **/
+  --ion-color-medium: #D6D6D6;
+  --ion-color-medium-rgb: 214, 214, 214;
+  --ion-color-medium-contrast: #000000;
+  --ion-color-medium-contrast-rgb: 0, 0, 0;
+  --ion-color-medium-shade: #bcbcbc;
+  --ion-color-medium-tint: #dadada;
+
+  /** tertiary **/
+  --ion-color-tertiary: #EDFBFF;
+  --ion-color-tertiary-rgb: 237, 251, 255;
+  --ion-color-tertiary-contrast: #000000;
+  --ion-color-tertiary-contrast-rgb: 0, 0, 0;
+  --ion-color-tertiary-shade: #d1dde0;
+  --ion-color-tertiary-tint: #effbff;
 
   /** 使用しないカラー **/
 

@@ -1,1 +1,32 @@
+.evaluation-select {
+  background-color: var(--ion-color-secondary);
+  height: 100vh;
+  position: relative;
 
+  .card {
+    background-image: url("../../assets/bg_children.jpg");
+    border-radius: .5rem;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+
+    .select-button {
+      --background: var(--ion-color-secondary-contrast);
+      margin-bottom: 1rem;
+
+      &:nth-child(1) {
+        border: solid .1rem red;
+      }
+
+      &:nth-child(2) {
+      }
+
+      &:nth-child(3) {
+      }
+    }
+  }
+}
