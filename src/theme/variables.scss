@@ -28,6 +28,22 @@
   --ion-color-secondary-shade: #3a4d41;
   --ion-color-secondary-tint: #55685c;
 
+  .report-book {
+    background-image: url("../assets/bg_hobby.jpg");
+    background-position: center;
+    height: 100vh;
+    position: relative;
+
+    .card {
+      background-color: #ffffff;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+    }
+  }
+
   /** 使用しないカラー **/
   /** tertiary **/
   --ion-color-tertiary: #7044ff;
